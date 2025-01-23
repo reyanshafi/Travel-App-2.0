@@ -24,7 +24,7 @@ const Destinations = () => {
   ];
 
   return (
-    <section className="bg-gray-100 dark:bg-gray-900 py-12">
+    <section className="bg-white dark:bg-gray-900 py-12">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold mb-8 text-teal-600 dark:text-teal-500 text-center">Featured Destinations</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">

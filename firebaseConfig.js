@@ -3,7 +3,6 @@ import { getAuth } from "firebase/auth";
 
 import { getFirestore } from 'firebase/firestore';
 
-// Replace the following with your Firebase project's configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCTSMgoKyQrfU5MAqoIBft51kXHNReNDiA",
     authDomain: "travel-app-5b0d8.firebaseapp.com",

@@ -1,48 +1,35 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation'; // Import usePathname
 
-const Navbar = ({ isHeroPage }) => {
-  const [isTop, setIsTop] = useState(true);
+const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname(); // Get the current route
 
-  useEffect(() => {
-    if (isHeroPage) {
-      const handleScroll = () => {
-        setIsTop(window.scrollY < 50);
-      };
-
-      window.addEventListener('scroll', handleScroll);
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }
-  }, [isHeroPage]);
+  // Function to check if a link is active
+  const isActive = (href) => pathname === href;
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 ${
-        isHeroPage && isTop ? 'bg-transparent' : 'bg-white dark:bg-gray-900'
-      } shadow-md transition-colors duration-300`}
-    >
-      <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+    <nav className="fixed top-0 left-0 z-50 w-full bg-white shadow-md dark:bg-gray-900">
+      <div className="flex items-center justify-between max-w-screen-xl p-4 mx-auto">
         {/* Logo */}
         <Link href="/">
           <img
-            src={isHeroPage && isTop ? "/images/logo-white.svg" : "/images/logo.svg"}
-            className="h-12 cursor-pointer"
+            src="/images/logo.svg"
+            className="h-20 cursor-pointer"
             alt="Logo"
           />
         </Link>
 
-        {/* Menu button for small screens */}
+        {/* Hamburger menu */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="text-gray-500 md:hidden p-2 rounded-lg hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700"
+          className="p-2 text-gray-500 rounded-lg md:hidden dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
         >
           <svg
-            className="w-6 h-6"
             xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -60,59 +47,97 @@ const Navbar = ({ isHeroPage }) => {
         <div
           className={`${
             menuOpen ? 'block' : 'hidden'
-          } md:flex md:items-center md:space-x-8 absolute md:relative top-full left-0 w-full md:w-auto md:bg-transparent bg-white dark:bg-gray-900 md:dark:bg-transparent`}
+          } md:flex items-center space-x-6 absolute md:relative top-full left-0 w-full md:w-auto bg-white dark:bg-gray-900 md:bg-transparent md:dark:bg-transparent shadow-lg md:shadow-none`}
         >
-          <Link href="/" className="block py-2 px-3 text-gray-900 dark:text-white hover:text-teal-600">
+          <Link
+            href="/"
+            className={`block px-4 py-2 ${
+              isActive('/')
+                ? 'text-teal-600 dark:text-teal-400'
+                : 'text-gray-900 dark:text-white hover:text-teal-600'
+            }`}
+          >
             Home
           </Link>
-          <Link href="/about" className="block py-2 px-3 text-gray-900 dark:text-white hover:text-teal-600">
+          <Link
+            href="/about"
+            className={`block px-4 py-2 ${
+              isActive('/about')
+                ? 'text-teal-600 dark:text-teal-400'
+                : 'text-gray-900 dark:text-white hover:text-teal-600'
+            }`}
+          >
             About
           </Link>
-          <Link href="/services" className="block py-2 px-3 text-gray-900 dark:text-white hover:text-teal-600">
+          <Link
+            href="/destinations"
+            className={`block px-4 py-2 ${
+              isActive('/contact')
+                ? 'text-teal-600 dark:text-teal-400'
+                : 'text-gray-900 dark:text-white hover:text-teal-600'
+            }`}
+          >
+            Destinations
+          </Link>
+          <Link
+            href="/packages"
+            className={`block px-4 py-2 ${
+              isActive('/contact')
+                ? 'text-teal-600 dark:text-teal-400'
+                : 'text-gray-900 dark:text-white hover:text-teal-600'
+            }`}
+          >
+            Packages
+          </Link>
+          <Link
+            href="/services"
+            className={`block px-4 py-2 ${
+              isActive('/services')
+                ? 'text-teal-600 dark:text-teal-400'
+                : 'text-gray-900 dark:text-white hover:text-teal-600'
+            }`}
+          >
             Services
           </Link>
-          <Link href="/gallery" className="block py-2 px-3 text-gray-900 dark:text-white hover:text-teal-600">
+          <Link
+            href="/gallery"
+            className={`block px-4 py-2 ${
+              isActive('/gallery')
+                ? 'text-teal-600 dark:text-teal-400'
+                : 'text-gray-900 dark:text-white hover:text-teal-600'
+            }`}
+          >
             Gallery
           </Link>
-          <Link href="/contact" className="block py-2 px-3 text-gray-900 dark:text-white hover:text-teal-600">
+          <Link
+            href="/contact"
+            className={`block px-4 py-2 ${
+              isActive('/contact')
+                ? 'text-teal-600 dark:text-teal-400'
+                : 'text-gray-900 dark:text-white hover:text-teal-600'
+            }`}
+          >
             Contact
           </Link>
-          {/* Dropdowns */}
-          <div className="relative group">
-            <button className="block py-2 px-3 text-gray-900 dark:text-white hover:text-teal-600">
-              Destinations
-            </button>
-            <div className="absolute hidden group-hover:block bg-white dark:bg-gray-800 shadow-lg">
-              <Link
-                href="/destinations/kashmir"
-                className="block px-4 py-2 hover:bg-teal-500 hover:text-white"
-              >
-                Destinations in Kashmir
-              </Link>
-            </div>
-          </div>
-          <div className="relative group">
-            <button className="block py-2 px-3 text-gray-900 dark:text-white hover:text-teal-600">
-              Packages
-            </button>
-            <div className="absolute hidden group-hover:block bg-white dark:bg-gray-800 shadow-lg">
-              <Link
-                href="/packages/kashmir"
-                className="block px-4 py-2 hover:bg-teal-500 hover:text-white"
-              >
-                Packages in Kashmir
-              </Link>
-            </div>
-          </div>
+        
+          
         </div>
 
-        {/* Get Quote button */}
-        <button
-          type="button"
-          className="hidden md:block text-white bg-teal-500 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-teal-700 dark:hover:bg-teal-800 dark:focus:ring-teal-900"
-        >
-          Get Quote
-        </button>
+        {/* Get Quote and Book Now buttons */}
+        <div className="items-center hidden space-x-4 md:flex">
+          <button
+            type="button"
+            className="px-4 py-2 text-sm font-medium text-white bg-teal-900 rounded-none hover:bg-teal-800 focus:ring-4 focus:outline-none dark:bg-teal-700 dark:hover:bg-teal-800 dark:focus:ring-teal-900"
+          >
+            Get Quote
+          </button>
+          <button
+            type="button"
+            className="px-4 py-2 text-sm font-medium text-black bg-white border-2 border-black rounded-none hover:bg-gray-200 focus:ring-4 focus:outline-none dark:bg-teal-700 dark:hover:bg-teal-800 dark:focus:ring-teal-900"
+          >
+            Book Now
+          </button>
+        </div>
       </div>
     </nav>
   );
