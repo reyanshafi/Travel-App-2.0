@@ -24,34 +24,50 @@ const Destinations = () => {
   ];
 
   return (
-    <section className="bg-white dark:bg-gray-900 py-12">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold mb-8 text-teal-600 dark:text-teal-500 text-center">Featured Destinations</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <section className="py-12 bg-white dark:bg-gray-900">
+      {/* Container for Content */}
+      <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+        {/* Heading */}
+        <h2 className="mb-8 text-3xl font-bold text-center text-[#114B5F] dark:text-[#0F838D] cursor-pointer">
+          Featured Destinations
+        </h2>
+
+        {/* Destination Cards */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
           {destinations.map((destination) => (
-            <div key={destination.id} className="relative rounded-lg overflow-hidden shadow-lg">
+            <div
+              key={destination.id}
+              className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
+            >
+              {/* Destination Image */}
               <img
                 src={destination.image}
                 alt={destination.name}
-                className="w-full h-64 object-cover"
+                className="object-cover w-full h-64"
                 onError={(e) => (e.target.src = '/images/placeholder.jpg')}
               />
+
+              {/* Dark Overlay */}
               <div className="absolute inset-0 bg-black opacity-60"></div>
-              <div className="absolute inset-0 p-6 flex flex-col items-start justify-end text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <h3 className="text-2xl font-bold mb-2">{destination.name}</h3>
+
+              {/* Destination Details (Visible on Hover) */}
+              <div className="absolute inset-0 flex flex-col items-start justify-end p-6 text-white transition-opacity duration-300 opacity-0 hover:opacity-100">
+                <h3 className="mb-2 text-2xl font-bold">{destination.name}</h3>
                 <p className="mb-4">{destination.description}</p>
-                <button className="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
+                <button className="px-4 py-2 font-bold text-white bg-[#114B5F] rounded hover:bg-[#0F838D]">
                   Discover More
                 </button>
               </div>
             </div>
           ))}
         </div>
-      </div>
-      <div className="text-center mt-8">
-        <button className="bg-teal-600 hover:bg-teal-700 text-white p-3 rounded-md text-center font-bold">
-          More Destinations
-        </button>
+
+        {/* More Destinations Button */}
+        <div className="mt-8 text-center">
+          <button className="px-6 py-3 font-bold text-white bg-[#114B5F] rounded-md hover:bg-[#0F838D]">
+            More Destinations
+          </button>
+        </div>
       </div>
     </section>
   );

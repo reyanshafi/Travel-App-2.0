@@ -30,26 +30,34 @@ const Packages = () => {
   return (
     <section className="py-16 bg-gray-100">
       <div className="max-w-screen-xl px-6 mx-auto sm:px-8 lg:px-12">
-        <h2 className="mb-12 text-4xl font-bold text-center text-teal-600">Our Exclusive Packages</h2>
+        {/* Heading */}
+        <h2 className="mb-12 text-4xl font-bold text-center text-[#114B5F] cursor-pointer ">
+          Our Exclusive Packages
+        </h2>
+
+        {/* Package Cards */}
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {packages.map((pkg) => (
             <div
               key={pkg.id}
-              className="overflow-hidden transition-shadow duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl"
+              className="overflow-hidden transition-shadow duration-300 bg-white rounded-lg shadow-lg cursor-pointer hover:shadow-xl"
             >
+              {/* Package Image */}
               <img
                 src={pkg.icon}
                 alt={pkg.name}
                 className="object-cover w-full h-48"
                 onError={(e) => (e.target.src = '/images/placeholder.jpg')}
               />
+
+              {/* Package Details */}
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-black">{pkg.name}</h3>
                 <p className="mt-3 text-gray-600">{pkg.description}</p>
                 <div className="flex items-center justify-between mt-6">
-                  <p className="text-xl font-bold text-green-600">{pkg.price}</p>
+                  <p className="text-xl font-bold text-[#114B5F]">{pkg.price}</p>
                   <Link href="/packages" passHref>
-                    <button className="px-4 py-2 text-white transition-colors bg-teal-600 rounded hover:bg-teal-700">
+                    <button className="px-4 py-2 text-white transition-colors bg-[#114B5F] rounded hover:bg-[#0F838D] cursor-pointer">
                       Book Now
                     </button>
                   </Link>
@@ -58,9 +66,11 @@ const Packages = () => {
             </div>
           ))}
         </div>
+
+        {/* View More Button */}
         <div className="mt-12 text-center">
           <Link href="/packages" passHref>
-            <button className="px-6 py-3 font-bold text-white transition-colors bg-teal-600 rounded shadow-md hover:bg-teal-700">
+            <button className="px-6 py-3 font-bold text-white transition-colors bg-[#114B5F] rounded shadow-md hover:bg-[#0F838D] cursor-pointer">
               View More Packages
             </button>
           </Link>

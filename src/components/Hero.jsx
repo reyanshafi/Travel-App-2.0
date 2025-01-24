@@ -41,44 +41,61 @@ const Hero = () => {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      
+      {/* Background Image Slider */}
       <div className="absolute inset-0 transition-opacity duration-700 ease-in-out">
         <Image
           src={slides[currentIndex].image}
           alt={`Slide ${currentIndex + 1}`}
           layout="fill"
           objectFit="cover"
-          className="bg-cover bg-center transition-transform duration-700 ease-in-out"
+          className="transition-opacity duration-700 ease-in-out"
         />
-                <div className="absolute inset-0 bg-black opacity-50"></div>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black opacity-60"></div>
+        <div className="absolute inset-0 bg-black rounded-md opacity-50 m-60 shadow-black drop-shadow-xl"></div>
+      </div>
 
-        <div className="absolute inset-0 bg-black opacity-60 m-56"></div>
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-teal-500 font-montserrat p-4 md:p-8">
- <h1 className="text-3xl md:text-4xl font-bold mb-4 transition-opacity duration-700 ease-in-out opacity-100">{slides[currentIndex].title}</h1>
-          <p className="text-lg md:text-xl mb-8 text-white transition-opacity duration-700 ease-in-out opacity-100">{slides[currentIndex].description}</p>
-          <div className="flex space-x-4">
-            <button className="bg-teal-800 text-white font-bold py-2 px-4 rounded hover:bg-teal-700 transition duration-300">Book Now</button>
-            
-            <button className="bg-green-700 text-white font-bold py-2 px-4 rounded hover:bg-green-800 transition duration-300">Get Quote</button>
-          </div>
+      {/* Centered Text (Dynamic) */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full p-4 text-center text-[#26a6b2]">
+        <h1 className="mb-4 text-4xl font-bold transition-opacity duration-700 ease-in-out md:text-5xl">
+          {slides[currentIndex].title}
+        </h1>
+        <p className="max-w-2xl mb-8 text-lg text-gray-200 transition-opacity duration-700 ease-in-out md:text-xl">
+          {slides[currentIndex].description}
+        </p>
+        <div className="flex space-x-4">
+          <button className="px-6 py-3 font-bold text-white transition duration-300 bg-[#114B5F] rounded-lg hover:bg-[#0F838D]">
+            Book Now
+          </button>
+          <button className="px-6 py-3 font-bold text-[#114B5F] transition duration-300 bg-white border border-white rounded-lg hover:bg-gray-100 hover:border-gray-100">
+            Get Quote
+          </button>
         </div>
       </div>
-      <div className="absolute z-30 top-1/2 left-4 transform -translate-y-1/2">
-        <button onClick={goToPrevious} className="text-white bg-teal-800 p-2 rounded-full hover:bg-teal-700 transition duration-300">
-          &lt;
-        </button>
-      </div>
-      <div className="absolute z-30 top-1/2 right-4 transform -translate-y-1/2">
-        <button onClick={goToNext} className="text-white bg-teal-800 p-2 rounded-full hover:bg-teal-700 transition duration-300">
-          &gt;
-        </button>
-      </div>
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={goToPrevious}
+        className="absolute z-30 p-3 text-white transition duration-300 transform -translate-y-1/2 bg-[#114B5F] rounded-full left-4 top-1/2 hover:bg-[#0F838D]"
+      >
+        &lt;
+      </button>
+      <button
+        onClick={goToNext}
+        className="absolute z-20 p-3 text-white transition duration-300 transform -translate-y-1/2 bg-[#114B5F] rounded-full right-4 top-1/2 hover:bg-[#0F838D]"
+      >
+        &gt;
+      </button>
+
+      {/* Navigation Dots */}
+      <div className="absolute flex space-x-2 transform -translate-x-1/2 bottom-20 left-1/2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`h-2 w-2 rounded-full ${currentIndex === index ? 'bg-teal-800' : 'bg-gray-300'} transition duration-300`}
+            className={`h-2 w-2 rounded-full ${
+              currentIndex === index ? 'bg-[#114B5F]' : 'bg-gray-400'
+            } transition duration-300`}
           />
         ))}
       </div>

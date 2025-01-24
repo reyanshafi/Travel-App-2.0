@@ -3,17 +3,22 @@ import '../app/globals.css';
 
 const About = () => {
   return (
-    <section className="bg-white dark:bg-gray-900 py-12">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+    <section className="py-12 bg-white dark:bg-gray-900">
+      <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+        {/* About Us Section */}
+        <div className="grid items-center grid-cols-1 gap-8 mb-12 md:grid-cols-2">
           <div className="md:pr-8">
-            <img src="/images/about.webp" alt="About Us" className="rounded-lg shadow-lg w-full h-64 object-cover" />
+            <img
+              src="/images/about.webp"
+              alt="About Us"
+              className="object-cover w-full h-64 rounded-lg shadow-lg"
+            />
           </div>
           <div>
-            <h2 className="inline text-3xl font-bold mb-4 text-teal-800 dark:text-teal-500 hover:border-b-2 hover:border-teal-800">
+            <h2 className="inline mb-4 text-3xl font-bold text-[#114B5F] dark:text-[#0F838D] hover:underline  cursor-pointer">
               About Us
             </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+            <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
               Welcome to YourTravelSite! We are passionate about helping you discover new places and experiences.
               Our mission is to provide unforgettable travel experiences that will create lasting memories.
             </p>
@@ -24,45 +29,56 @@ const About = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+        {/* Our Mission Section */}
+        <div className="grid items-center grid-cols-1 gap-8 mb-12 md:grid-cols-2">
           <div>
-            <h2 className="inline text-3xl font-bold mb-4 text-teal-800 dark:text-teal-500 hover:border-b-2 hover:border-teal-800">
+            <h2 className="inline mb-4 text-3xl font-bold text-[#114B5F] dark:text-[#0F838D] hover:underline cursor-pointer">
               Our Mission
             </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+            <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
               To inspire and empower people to explore the world, offering tailored travel experiences that suit individual preferences and create lifelong memories.
             </p>
           </div>
           <div className="md:pl-8">
-            <img src="/images/mission.jpeg" alt="Our Mission" className="rounded-lg shadow-lg w-full h-64 object-cover" />
+            <img
+              src="/images/mission.jpg"
+              alt="Our Mission"
+              className="object-cover w-full h-64 rounded-lg shadow-lg"
+            />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+        {/* Our Vision Section */}
+        <div className="grid items-center grid-cols-1 gap-8 mb-12 md:grid-cols-2">
           <div className="md:pr-8">
-            <img src="/images/vision.jpg" alt="Our Vision" className="rounded-lg shadow-lg w-full h-64 object-cover" />
+            <img
+              src="/images/vision.jpg"
+              alt="Our Vision"
+              className="object-cover w-full h-64 rounded-lg shadow-lg"
+            />
           </div>
           <div>
-            <h2 className="inline text-3xl font-bold mb-4 text-teal-800 dark:text-teal-500 hover:border-b-2 hover:border-teal-800">
+            <h2 className="inline mb-4 text-3xl font-bold text-[#114B5F] dark:text-[#0F838D] hover:underline cursor-pointer">
               Our Vision
             </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+            <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
               To be the world’s most trusted and innovative travel company, enriching lives through unforgettable travel experiences.
             </p>
           </div>
         </div>
 
+        {/* Call to Action Section */}
         <div className="text-center">
-          <h2 className="inline text-3xl font-bold mb-4 text-teal-800 dark:text-teal-500 hover:border-b-2 hover:border-teal-800">
+          <h2 className="inline mb-4 text-3xl font-bold text-[#114B5F] dark:text-[#0F838D] hover:underline cursor-pointer">
             Join Us on an Adventure
           </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+          <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
             Ready to explore the world? Contact us today and let us help you plan your next unforgettable journey.
           </p>
-          <button className="bg-teal-800 text-white font-bold py-2 px-4 rounded mx-2 hover:bg-teal-700 transition duration-300">
+          <button className="px-4 py-2 mx-2 font-bold text-white transition duration-300 bg-[#114B5F] rounded hover:bg-[#0F838D] cursor-pointer">
             Contact Us
           </button>
-          <button className="bg-green-700 text-white font-bold py-2 px-4 rounded mx-2 hover:bg-green-800 transition duration-300">
+          <button className="px-4 py-2 mx-2 font-bold text-white transition duration-300 bg-[#0F838D] rounded hover:bg-[#114B5F] cursor-pointer">
             Learn More
           </button>
         </div>

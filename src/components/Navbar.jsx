@@ -47,14 +47,14 @@ const Navbar = () => {
         <div
           className={`${
             menuOpen ? 'block' : 'hidden'
-          } md:flex items-center space-x-6 absolute md:relative top-full left-0 w-full md:w-auto bg-white dark:bg-gray-900 md:bg-transparent md:dark:bg-transparent shadow-lg md:shadow-none`}
+          } md:flex px-10 items-center space-x-2 absolute md:relative top-full left-0 w-full md:w-auto bg-white dark:bg-gray-900 md:bg-transparent md:dark:bg-transparent shadow-lg md:shadow-none`}
         >
           <Link
             href="/"
             className={`block px-4 py-2 ${
               isActive('/')
-                ? 'text-teal-600 dark:text-teal-400'
-                : 'text-gray-900 dark:text-white hover:text-teal-600'
+                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
+                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
             }`}
           >
             Home
@@ -63,8 +63,8 @@ const Navbar = () => {
             href="/about"
             className={`block px-4 py-2 ${
               isActive('/about')
-                ? 'text-teal-600 dark:text-teal-400'
-                : 'text-gray-900 dark:text-white hover:text-teal-600'
+                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
+                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
             }`}
           >
             About
@@ -72,9 +72,9 @@ const Navbar = () => {
           <Link
             href="/destinations"
             className={`block px-4 py-2 ${
-              isActive('/contact')
-                ? 'text-teal-600 dark:text-teal-400'
-                : 'text-gray-900 dark:text-white hover:text-teal-600'
+              isActive('/destinations')
+                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
+                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
             }`}
           >
             Destinations
@@ -82,9 +82,9 @@ const Navbar = () => {
           <Link
             href="/packages"
             className={`block px-4 py-2 ${
-              isActive('/contact')
-                ? 'text-teal-600 dark:text-teal-400'
-                : 'text-gray-900 dark:text-white hover:text-teal-600'
+              isActive('/packages')
+                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
+                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
             }`}
           >
             Packages
@@ -93,8 +93,8 @@ const Navbar = () => {
             href="/services"
             className={`block px-4 py-2 ${
               isActive('/services')
-                ? 'text-teal-600 dark:text-teal-400'
-                : 'text-gray-900 dark:text-white hover:text-teal-600'
+                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
+                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
             }`}
           >
             Services
@@ -103,8 +103,8 @@ const Navbar = () => {
             href="/gallery"
             className={`block px-4 py-2 ${
               isActive('/gallery')
-                ? 'text-teal-600 dark:text-teal-400'
-                : 'text-gray-900 dark:text-white hover:text-teal-600'
+                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
+                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
             }`}
           >
             Gallery
@@ -113,27 +113,25 @@ const Navbar = () => {
             href="/contact"
             className={`block px-4 py-2 ${
               isActive('/contact')
-                ? 'text-teal-600 dark:text-teal-400'
-                : 'text-gray-900 dark:text-white hover:text-teal-600'
+                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
+                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
             }`}
           >
             Contact
           </Link>
-        
-          
         </div>
 
         {/* Get Quote and Book Now buttons */}
         <div className="items-center hidden space-x-4 md:flex">
           <button
             type="button"
-            className="px-4 py-2 text-sm font-medium text-white bg-teal-900 rounded-none hover:bg-teal-800 focus:ring-4 focus:outline-none dark:bg-teal-700 dark:hover:bg-teal-800 dark:focus:ring-teal-900"
+            className="px-4 py-2 text-sm font-medium text-white rounded-none bg-[#114B5F] hover:bg-[#0D3A4A] focus:ring-4 focus:outline-none focus:ring-[#114B5F]"
           >
             Get Quote
           </button>
           <button
             type="button"
-            className="px-4 py-2 text-sm font-medium text-black bg-white border-2 border-black rounded-none hover:bg-gray-200 focus:ring-4 focus:outline-none dark:bg-teal-700 dark:hover:bg-teal-800 dark:focus:ring-teal-900"
+            className="px-4 py-2 text-sm font-medium text-[#114B5F] bg-white border-2 border-[#114B5F] rounded-none hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-[#114B5F]"
           >
             Book Now
           </button>

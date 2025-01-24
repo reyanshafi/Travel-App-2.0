@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import supabase from "../../../supabaseClient"; // Import Supabase client
 import '../../app/globals.css';
-import { auth } from "../../../firebaseConfig";  // Correct import
 import Link from "next/link";
+import ProtectedRoute from "../../components/ProtectedRoute";
+
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -14,20 +15,29 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      router.push("/admin/dashboard"); // Redirect to admin dashboard
+      // Sign in with Supabase
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) throw error;
+
+      // Redirect to admin dashboard
+      router.push("/admin/dashboard");
     } catch (error) {
       setError("Invalid credentials");
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-3xl font-semibold text-center text-teal-600 mb-8">Admin Login</h2>
+    <ProtectedRoute>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+        <h2 className="mb-8 text-3xl font-semibold text-center text-teal-600">Admin Login</h2>
         
         {error && (
-          <div className="bg-red-500 text-white p-2 rounded-md mb-4 text-center">
+          <div className="p-2 mb-4 text-center text-white bg-red-500 rounded-md">
             {error}
           </div>
         )}
@@ -59,7 +69,7 @@ const AdminLogin = () => {
 
           <button
             type="submit"
-            className="w-full bg-teal-600 text-white p-3 rounded-md hover:bg-teal-500 focus:outline-none"
+            className="w-full p-3 text-white bg-teal-600 rounded-md hover:bg-teal-500 focus:outline-none"
           >
             Login
           </button>
@@ -75,6 +85,7 @@ const AdminLogin = () => {
         </div>
       </div>
     </div>
+    </ProtectedRoute>
   );
 };
 

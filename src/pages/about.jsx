@@ -9,7 +9,7 @@ const About = () => {
   return (
     <>
       <Navbar isHeroPage={false} />
-      <section className="py-24 pt-40 bg-white dark:bg-gray-900">
+      <section className="py-24 bg-white pt-36 dark:bg-gray-900">
         <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
           {/* About Us Headline and Description */}
           <div className="mb-16 text-center fade-in">
@@ -27,7 +27,7 @@ const About = () => {
             <div className="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
               <div className="fade-in-left">
                 <Image
-                  src="/images/mission-kashmir.jpg"
+                  src="/images/mission.jpg"
                   alt="Our Mission"
                   className="object-cover w-full h-64 rounded-lg shadow-lg"
                   layout="responsive"
@@ -49,7 +49,7 @@ const About = () => {
             <div className="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
               <div className="md:order-2 fade-in-right">
                 <Image
-                  src="/images/vision-kashmir.jpg"
+                  src="/images/vision.jpg"
                   alt="Our Vision"
                   className="object-cover w-full h-64 rounded-lg shadow-lg"
                   layout="responsive"
@@ -71,7 +71,7 @@ const About = () => {
             <div className="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
               <div className="fade-in-left">
                 <Image
-                  src="/images/team-kashmir.jpg"
+                  src="/images/team.jpg"
                   alt="Our Team"
                   className="object-cover w-full h-64 rounded-lg shadow-lg"
                   layout="responsive"
@@ -93,7 +93,7 @@ const About = () => {
             <div className="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
               <div className="md:order-2 fade-in-right">
                 <Image
-                  src="/images/why-choose-us.jpg"
+                  src="/images/why.jpg"
                   alt="Why Choose Us"
                   className="object-cover w-full h-64 rounded-lg shadow-lg"
                   layout="responsive"
@@ -115,7 +115,7 @@ const About = () => {
             <div className="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
               <div className="fade-in-left">
                 <Image
-                  src="/images/values-kashmir.jpg"
+                  src="/images/values.jpg"
                   alt="Our Values"
                   className="object-cover w-full h-64 rounded-lg shadow-lg"
                   layout="responsive"
@@ -159,9 +159,9 @@ const About = () => {
             <div className="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
               <div className="md:order-2 fade-in-right">
                 <Image
-                  src="/images/sustainability-kashmir.jpg"
+                  src="/images/sustainability.jpg"
                   alt="Sustainability Commitment"
-                  className="object-cover w-full h-64 rounded-lg shadow-lg"
+                  className="object-cover w-full h-24 rounded-lg shadow-lg"
                   layout="responsive"
                   width={700}
                   height={475}

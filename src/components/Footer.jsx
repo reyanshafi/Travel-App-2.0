@@ -157,7 +157,8 @@ const Footer = () => {
             Go to Top
           </button>
         </div>
-        <div>Developed by <a href='https://www.linkedin.com/in/reyanshafi/' className='text-green-600'>Reyan Shafi </a></div>
+        <br />
+        <div className='text-center'>Developed by <a href='https://www.linkedin.com/in/reyanshafi/' className='text-green-600'>Reyan Shafi </a></div>
       </div>
     </footer>
   );

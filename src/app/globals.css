@@ -1,6 +1,8 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap' */
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Signika:wght@300..700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Signika:wght@300..700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
 
 
 
@@ -12,6 +14,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --lightgreen:#60d52e;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,8 +28,23 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  font-family: "Signika", serif;
+  font-family: "Titillium Web", serif;
+  font-weight: 300;
+  font-style: normal;
 }
+h2{
+  font-family: "Quintessential", serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+h1{
+  
+  font-family: "Roboto Condensed", serif;
+  font-optical-sizing: auto;
+  
+  font-style: normal;
+}
+
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } } @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } } @keyframes fadeInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } } .fade-in { animation: fadeIn 1s ease-out; } .fade-in-left { animation: fadeInLeft 1s ease-out; } .fade-in-right { animation: fadeInRight 1s ease-out; }
