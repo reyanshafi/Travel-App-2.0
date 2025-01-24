@@ -1,17 +1,19 @@
 'use client';
 import React, { useState } from 'react';
+import TopBar from './TopBar';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // Import usePathname
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname(); // Get the current route
+  const pathname = usePathname();
 
-  // Function to check if a link is active
   const isActive = (href) => pathname === href;
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full bg-white shadow-md dark:bg-gray-900">
+    <>
+    <TopBar />
+    <nav className="fixed top-0 left-0 z-50 w-full mt-10 bg-white shadow-md dark:bg-gray-900">
       <div className="flex items-center justify-between max-w-screen-xl p-4 mx-auto">
         {/* Logo */}
         <Link href="/">
@@ -22,10 +24,54 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Hamburger menu */}
+        {/* Desktop Navigation */}
+        <div className="items-center hidden gap-4 md:flex">
+          {/* Nav Links */}
+          <div className="flex items-center space-x-4">
+            {[
+              ['Home', '/'],
+              ['About', '/about'],
+              ['Destinations', '/destinations'],
+              ['Packages', '/packages'],
+              ['Services', '/services'],
+              // ['Gallery', '/gallery'],
+              ['Contact', '/contact'],
+            ].map(([title, href]) => (
+              <Link
+                key={href}
+                href={href}
+                className={`px-3 py-2 text-sm ${
+                  isActive(href)
+                    ? 'text-[#114B5F] dark:text-[#114B5F] font-semibold'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-[#114B5F]'
+                }`}
+              >
+                {title}
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop Buttons */}
+          <div className="flex items-center ml-4 space-x-3">
+            <button
+              type="button"
+              className="px-4 py-2 text-sm font-medium text-white rounded-none bg-[#114B5F] hover:bg-[#0D3A4A]"
+            >
+              Get Quote
+            </button>
+            <button
+              type="button"
+              className="px-4 py-2 text-sm font-medium text-[#114B5F] bg-white border-2 border-[#114B5F] rounded-none hover:bg-gray-100"
+            >
+              Book Now
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="p-2 text-gray-500 rounded-lg md:hidden dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+          className="p-2 text-gray-500 rounded-lg md:hidden dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -43,101 +89,77 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Navbar links */}
+        {/* Mobile Sidebar */}
         <div
-          className={`${
-            menuOpen ? 'block' : 'hidden'
-          } md:flex px-10 items-center space-x-2 absolute md:relative top-full left-0 w-full md:w-auto bg-white dark:bg-gray-900 md:bg-transparent md:dark:bg-transparent shadow-lg md:shadow-none`}
+          className={`fixed right-0 top-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl transform transition-transform duration-300 ease-in-out ${
+            menuOpen ? 'translate-x-0' : 'translate-x-full'
+          } md:hidden z-50`}
         >
-          <Link
-            href="/"
-            className={`block px-4 py-2 ${
-              isActive('/')
-                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
-                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
-            }`}
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className={`block px-4 py-2 ${
-              isActive('/about')
-                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
-                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
-            }`}
-          >
-            About
-          </Link>
-          <Link
-            href="/destinations"
-            className={`block px-4 py-2 ${
-              isActive('/destinations')
-                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
-                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
-            }`}
-          >
-            Destinations
-          </Link>
-          <Link
-            href="/packages"
-            className={`block px-4 py-2 ${
-              isActive('/packages')
-                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
-                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
-            }`}
-          >
-            Packages
-          </Link>
-          <Link
-            href="/services"
-            className={`block px-4 py-2 ${
-              isActive('/services')
-                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
-                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
-            }`}
-          >
-            Services
-          </Link>
-          <Link
-            href="/gallery"
-            className={`block px-4 py-2 ${
-              isActive('/gallery')
-                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
-                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
-            }`}
-          >
-            Gallery
-          </Link>
-          <Link
-            href="/contact"
-            className={`block px-4 py-2 ${
-              isActive('/contact')
-                ? 'text-[#114B5F] dark:text-[#114B5F] font-bold'
-                : 'text-gray-900 dark:text-white hover:text-[#114B5F]'
-            }`}
-          >
-            Contact
-          </Link>
-        </div>
+          <div className="flex justify-end p-4">
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="p-2 text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
 
-        {/* Get Quote and Book Now buttons */}
-        <div className="items-center hidden space-x-4 md:flex">
-          <button
-            type="button"
-            className="px-4 py-2 text-sm font-medium text-white rounded-none bg-[#114B5F] hover:bg-[#0D3A4A] focus:ring-4 focus:outline-none focus:ring-[#114B5F]"
-          >
-            Get Quote
-          </button>
-          <button
-            type="button"
-            className="px-4 py-2 text-sm font-medium text-[#114B5F] bg-white border-2 border-[#114B5F] rounded-none hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-[#114B5F]"
-          >
-            Book Now
-          </button>
+          <div className="flex flex-col p-4 space-y-4">
+            {[
+              ['Home', '/'],
+              ['About', '/about'],
+              ['Destinations', '/destinations'],
+              ['Packages', '/packages'],
+              ['Services', '/services'],
+              // ['Gallery', '/gallery'],
+              ['Contact', '/contact'],
+            ].map(([title, href]) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className={`px-3 py-2 ${
+                  isActive(href)
+                    ? 'text-[#114B5F] dark:text-[#114B5F] font-semibold'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-[#114B5F]'
+                }`}
+              >
+                {title}
+              </Link>
+            ))}
+
+            <div className="pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
+              <button
+                type="button"
+                className="w-full px-4 py-2 mb-3 text-sm font-medium text-white bg-[#114B5F] hover:bg-[#0D3A4A]"
+              >
+                Get Quote
+              </button>
+              <button
+                type="button"
+                className="w-full px-4 py-2 text-sm font-medium text-[#114B5F] border-2 border-[#114B5F] hover:bg-gray-100"
+              >
+                Book Now
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
+    </>
   );
 };
 

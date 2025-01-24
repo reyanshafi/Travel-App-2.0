@@ -17,7 +17,7 @@ const Footer = () => {
             <Image
               src="/images/logofooter.svg" // Update with your logo path
               alt="SUWIDA Tour and Travels Logo"
-              width={200}
+              width={300}
               height={100}
               className="mb-4"
             />
@@ -50,18 +50,14 @@ const Footer = () => {
                   Contact Us
                 </a>
               </li>
-              <li>
-                <a href="/blog" className="text-gray-400 transition hover:text-teal-400">
-                  Travel Blog
-                </a>
-              </li>
+              
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             <h3 className="text-lg font-bold text-teal-400">Contact Us</h3>
-            <div className="space-y-4 text-gray-400">
+            <div className="space-y-2 text-gray-400">
               <div className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="mt-1 text-teal-400" size={18} />
                 <p>Landmark Hotel Hilal Palace, Khan Khan Dalgate, Srinagar, Jammu & Kashmir, 190001</p>
@@ -158,7 +154,7 @@ const Footer = () => {
           </button>
         </div>
         <br />
-        <div className='text-center'>Developed by <a href='https://www.linkedin.com/in/reyanshafi/' className='text-green-600'>Reyan Shafi </a></div>
+        <div className='text-center'>Developed by <a href='https://www.linkedin.com/in/reyanshafi/' className='text-teal-400  hover:text-teal-300'>Reyan Shafi </a></div>
       </div>
     </footer>
   );

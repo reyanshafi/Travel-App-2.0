@@ -9,7 +9,7 @@ const About = () => {
   return (
     <>
       <Navbar isHeroPage={false} />
-      <section className="py-24 bg-white pt-36 dark:bg-gray-900">
+      <section className="py-24 bg-white pt-44 dark:bg-gray-900">
         <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
           {/* About Us Headline and Description */}
           <div className="mb-16 text-center fade-in">

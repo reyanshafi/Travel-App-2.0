@@ -12,12 +12,12 @@ const Contact = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="relative flex items-center justify-center h-64 text-white bg-[#114B5F]">
+      <div className="relative flex items-center justify-center h-64 text-white bg-[#134354]">
         <div className="text-center fade-in">
           <h1 className="mb-4 text-4xl font-bold md:text-5xl animate-fade-in-up">
             Contact Us
           </h1>
-          <p className="text-lg delay-100 animate-fade-in-up">
+          <p className="px-10 text-lg delay-100 animate-fade-in-up">
             We'd love to hear from you! Reach out to us for any inquiries or bookings.
           </p>
         </div>
@@ -27,13 +27,13 @@ const Contact = () => {
       <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
           {/* Contact Details */}
-          <div className="p-8 transition-transform duration-300 bg-white rounded-lg shadow-lg dark:bg-gray-800 animate-fade-in-left hover:scale-105">
+          <div className="p-8 transition-transform duration-300 bg-white rounded-lg shadow-lg cursor-default dark:bg-gray-800 animate-fade-in-left drop-shadow-lg">
             <h2 className="mb-6 text-3xl font-bold text-[#114B5F] dark:text-[#114B5F]">
               Get in Touch
             </h2>
             <div className="space-y-6">
               {/* Address */}
-              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                 <div className="text-[#114B5F] dark:text-[#114B5F]">
                   <FaMapMarkerAlt size={24} />
                 </div>
@@ -46,7 +46,7 @@ const Contact = () => {
               </div>
 
               {/* Phone Numbers */}
-              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                 <div className="text-[#114B5F] dark:text-[#114B5F]">
                   <FaPhone size={24} />
                 </div>
@@ -65,7 +65,7 @@ const Contact = () => {
               </div>
 
               {/* WhatsApp */}
-              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                 <div className="text-[#114B5F] dark:text-[#114B5F]">
                   <FaWhatsapp size={24} />
                 </div>
@@ -85,7 +85,7 @@ const Contact = () => {
               </div>
 
               {/* Email */}
-              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                 <div className="text-[#114B5F] dark:text-[#114B5F]">
                   <FaEnvelope size={24} />
                 </div>
@@ -105,12 +105,12 @@ const Contact = () => {
           </div>
 
           {/* Why Choose Us Card */}
-          <div className="p-8 transition-transform duration-300 bg-white rounded-lg shadow-lg dark:bg-gray-800 animate-fade-in-right hover:scale-105">
+          <div className="p-8 transition-transform duration-300 bg-white rounded-lg shadow-lg cursor-default dark:bg-gray-800 animate-fade-in-right drop-shadow-lg">
             <h2 className="mb-6 text-3xl font-bold text-[#114B5F] dark:text-[#114B5F]">
               Why Choose Us?
             </h2>
             <div className="space-y-6">
-              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                 <div className="text-[#114B5F] dark:text-[#114B5F]">
                   <FaMapMarkerAlt size={24} />
                 </div>
@@ -121,7 +121,7 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                 <div className="text-[#114B5F] dark:text-[#114B5F]">
                   <FaPhone size={24} />
                 </div>
@@ -132,7 +132,7 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+              <div className="flex items-start p-4 space-x-4 transition-all duration-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                 <div className="text-[#114B5F] dark:text-[#114B5F]">
                   <FaEnvelope size={24} />
                 </div>

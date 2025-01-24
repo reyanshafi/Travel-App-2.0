@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../app/globals.css';
@@ -46,14 +47,13 @@ const Destinations = () => {
 
   return (
     <div className="bg-white pt-28 dark:bg-gray-900">
-      {/* Navbar */}
       <Navbar />
 
       {/* Hero Section */}
       <div className="relative flex items-center justify-center h-64 text-white bg-[#114B5F]">
         <div className="text-center fade-in">
           <h1 className="mb-4 text-4xl font-bold md:text-5xl animate-fade-in-up">Destinations</h1>
-          <p className="text-lg delay-100 animate-fade-in-up">
+          <p className="px-10 text-lg delay-100 animate-fade-in-up">
             Explore the breathtaking destinations of Jammu & Kashmir.
           </p>
         </div>
@@ -67,11 +67,18 @@ const Destinations = () => {
               key={destination.id}
               className="mb-8 transition-transform duration-300 bg-white rounded-lg shadow-lg break-inside-avoid dark:bg-gray-800 animate-fade-in-up hover:scale-105"
             >
-              <img
-                src={destination.image}
-                alt={destination.title}
-                className="object-cover w-full h-48 rounded-t-lg"
-              />
+              <div className="relative h-48">
+                <Image
+                  src={destination.image}
+                  alt={destination.title}
+                  fill
+                  className="object-cover rounded-t-lg"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+                  loading="lazy"
+                />
+              </div>
               <div className="p-6">
                 <h2 className="mb-2 text-xl font-bold text-[#114B5F] dark:text-[#114B5F]">
                   {destination.title}
@@ -83,7 +90,6 @@ const Destinations = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );

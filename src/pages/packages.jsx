@@ -40,7 +40,7 @@ const Packages = () => {
       <Navbar />
 
       {/* Packages Section */}
-      <div className="py-8 pt-40 bg-gray-50 dark:bg-gray-900">
+      <div className="py-8 pt-44 bg-gray-50 dark:bg-gray-900">
         <h1 className="mb-8 text-4xl font-bold text-center text-[#114B5F] dark:text-[#114B5F]">
           Travel Packages
         </h1>

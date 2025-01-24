@@ -67,7 +67,7 @@ const Hero = () => {
           <button className="px-6 py-3 font-bold text-white transition duration-300 bg-[#114B5F] rounded-lg hover:bg-[#0F838D]">
             Book Now
           </button>
-          <button className="px-6 py-3 font-bold text-[#114B5F] transition duration-300 bg-white border border-white rounded-lg hover:bg-gray-100 hover:border-gray-100">
+          <button className="px-6 py-3 font-bold text-[#114B5F] transition duration-300 bg-white border border-white rounded-lg hover:bg-gray-300 hover:border-gray-300">
             Get Quote
           </button>
         </div>

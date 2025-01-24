@@ -1,5 +1,7 @@
+import PreLoader from '@/components/PreLoader';
 import Navbar from '../components/Navbar';
 import CustomFooter from '@/components/Footer';
+
 import './globals.css';
 
 export default function RootLayout({ children }) {
@@ -14,9 +16,12 @@ export default function RootLayout({ children }) {
       
       </head>
       <body className="text-gray-900 bg-white dark:bg-gray-900 dark:text-white">
+        <PreLoader />
       <Navbar />
+      
         <main>{children}</main>
         <CustomFooter />
+        
       </body>
     </html>
   );

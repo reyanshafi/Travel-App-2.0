@@ -40,7 +40,7 @@ const Services = () => {
   return (
     <div className="bg-white dark:bg-gray-900">
       <Navbar />
-      <section className="py-24 pt-40">
+      <section className="py-24 pt-44">
         <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
           {/* Headline Section */}
           <div className="mb-16 text-center fade-in">
