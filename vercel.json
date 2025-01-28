@@ -1,9 +1,19 @@
 {
-    "rewrites": [
+    "headers": [
       {
-        "source": "/(.*)",
-        "destination": "/maintenance"
+        "source": "/maintenance", 
+        "headers": [
+          { "key": "Retry-After", "value": "3600" }
+        ],
+        "status": 503
       }
+    ],
+    "rewrites": [
+      
+    { "source": "/_next/static/(.*)", "destination": "/_next/static/$1" },
+      { "source": "/public/(.*)", "destination": "/public/$1" },
+      
+      { "source": "/(.*)", "destination": "/maintenance" } 
     ]
   }
   
