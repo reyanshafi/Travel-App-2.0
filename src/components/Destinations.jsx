@@ -5,57 +5,54 @@ const Destinations = () => {
   const destinations = [
     {
       id: 1,
-      name: 'DalLake, Srinagar',
-      description: 'Experience the city of love and its iconic landmarks.',
+      name: 'Dal Lake, Srinagar',
+      description: 'Experience serene shikara rides amidst Himalayan vistas.',
       image: '/images/dallake.jpg'
     },
+   
     {
       id: 2,
-      name: 'Gulmarg, Baramulla',
-      description: 'Explore the ancient temples and serene gardens of Kyoto.',
-      image: '/images/gulmarg.jpg'
-    },
-    {
-      id: 3,
       name: 'Pahalgam, Anantnag',
-      description: 'Discover the vibrant culture and beautiful beaches of Sydney.',
+      description: 'Pristine valleys and Lidder river trekking routes.',
       image: '/images/pahalgam.jpg'
     },
   ];
 
   return (
-    <section className="py-12 bg-white dark:bg-gray-900">
-      {/* Container for Content */}
-      <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+    <section className="py-16 bg-white">
+      <div className="max-w-screen-xl px-6 mx-auto">
         {/* Heading */}
-        <h2 className="mb-8 text-3xl font-bold text-center text-[#114B5F] dark:text-[#0F838D] cursor-pointer">
-          Featured Destinations
-        </h2>
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-4xl font-bold text-blue-950">
+            Explore Kashmir's Wonders
+          </h2>
+          <p className="max-w-xl mx-auto text-gray-600">
+            Discover breathtaking landscapes in the crown of India
+          </p>
+        </div>
 
-        {/* Destination Cards */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+        {/* Destinations List */}
+        <div className="space-y-16">
           {destinations.map((destination) => (
-            <div
-              key={destination.id}
-              className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
-            >
-              {/* Destination Image */}
+            <div key={destination.id} className="w-full">
+              {/* Full-width Image */}
               <img
                 src={destination.image}
                 alt={destination.name}
-                className="object-cover w-full h-64"
+                className="object-cover w-full rounded-lg shadow-lg h-96"
                 onError={(e) => (e.target.src = '/images/placeholder.jpg')}
               />
 
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black opacity-60"></div>
-
-              {/* Destination Details (Visible on Hover) */}
-              <div className="absolute inset-0 flex flex-col items-start justify-end p-6 text-white transition-opacity duration-300 opacity-0 hover:opacity-100">
-                <h3 className="mb-2 text-2xl font-bold">{destination.name}</h3>
-                <p className="mb-4">{destination.description}</p>
-                <button className="px-4 py-2 font-bold text-white bg-[#114B5F] rounded hover:bg-[#0F838D]">
-                  Discover More
+              {/* Text Content Below Image */}
+              <div className="flex items-start justify-between mt-6">
+                <div className="flex-1 pr-4">
+                  <h3 className="mb-2 text-2xl font-bold text-blue-950">
+                    {destination.name}
+                  </h3>
+                  <p className="text-gray-600">{destination.description}</p>
+                </div>
+                <button className="px-6 py-2.5 font-semibold text-white bg-orange-600 rounded-md hover:bg-orange-700 transition-colors">
+                  Explore
                 </button>
               </div>
             </div>
@@ -63,9 +60,9 @@ const Destinations = () => {
         </div>
 
         {/* More Destinations Button */}
-        <div className="mt-8 text-center">
-          <button className="px-6 py-3 font-bold text-white bg-[#114B5F] rounded-md hover:bg-[#0F838D]">
-            More Destinations
+        <div className="mt-12 text-center">
+          <button className="px-8 py-3 text-lg font-semibold text-white transition-colors bg-orange-600 rounded-md hover:bg-orange-700">
+            View All Destinations
           </button>
         </div>
       </div>

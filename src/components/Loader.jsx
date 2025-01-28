@@ -89,7 +89,7 @@ const StyledWrapper = styled.div`
       box-shadow: 0 -8px #076fe5;
       height: 40px;
     }
-  }`;
+  }`;   
 
 export default Loader;
     

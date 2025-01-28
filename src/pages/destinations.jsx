@@ -46,21 +46,50 @@ const Destinations = () => {
   ];
 
   return (
-    <div className="bg-white pt-28 dark:bg-gray-900">
+    <div className="pt-40 bg-white dark:bg-gray-900">
       <Navbar />
 
-      {/* Hero Section */}
-      <div className="relative flex items-center justify-center h-64 text-white bg-[#114B5F]">
-        <div className="text-center fade-in">
-          <h1 className="mb-4 text-4xl font-bold md:text-5xl animate-fade-in-up">Destinations</h1>
-          <p className="px-10 text-lg delay-100 animate-fade-in-up">
-            Explore the breathtaking destinations of Jammu & Kashmir.
-          </p>
-        </div>
-      </div>
+      {/* Modified Hero Section */}
+      <div className="relative flex items-center justify-center h-64 bg-white">
+  <div className="text-center fade-in">
+    <h4 className='mb-4 font-light'>Explore</h4>
+    <h1 className="pb-2 mb-4 text-4xl font-bold border-b-4 border-b-orange-500 md:text-5xl animate-fade-in-up text-blue-950">
+      Discover Your Adventure
+    </h1>
+    <p className="px-10 text-lg text-gray-600 delay-100 animate-fade-in-up">
+      Explore the breathtaking destinations of Jammu & Kashmir.
+    </p>
+    <div className="mt-6 space-x-4">
+      <button 
+        className="px-6 py-2 text-white bg-orange-600 rounded-full hover:bg-orange-700"
+        onClick={() => window.open('https://wa.me/yourwhatsappnumber?text=Hi, I would like to get a quote for my trip.', '_blank')}
+      >
+        Get Quote
+      </button>
+      <button 
+        className="px-6 py-2 bg-transparent border rounded-full text-blue-950 border-blue-950 hover:bg-blue-950 hover:text-white"
+        onClick={() => window.location.href = '/packages'}
+      >
+        Book Now
+      </button>
+    </div>
 
-      {/* Masonry Grid Layout */}
+  </div>
+</div>
+
+<div className='flex justify-center mt-8 text-center'>
+  <div className='justify-center w-24 bg-gray-400 border-b-2'></div>
+</div>
+
+      {/* Original Masonry Grid Layout */}
       <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+        <div className='mb-12 font-normal text-center'>
+          <h4>Destinations</h4>
+          <h2 className="mb-4 text-4xl font-bold md:text-5xl animate-fade-in-up text-blue-950">
+      Explore Top Destinations
+      <div className="w-40 h-1 mx-auto mt-2 bg-orange-600 rounded-full"></div>
+    </h2>
+        </div>
         <div className="gap-8 columns-1 sm:columns-2 lg:columns-3">
           {destinations.map((destination) => (
             <div
@@ -80,7 +109,7 @@ const Destinations = () => {
                 />
               </div>
               <div className="p-6">
-                <h2 className="mb-2 text-xl font-bold text-[#114B5F] dark:text-[#114B5F]">
+                <h2 className="mb-2 text-xl font-bold text-blue-950 dark:text-blue-200">
                   {destination.title}
                 </h2>
                 <p className="text-gray-700 dark:text-gray-300">{destination.description}</p>

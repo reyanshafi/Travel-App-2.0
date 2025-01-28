@@ -1,25 +1,23 @@
 import { useState, useEffect } from "react";
-import supabase from "../../supabaseClient"; // Import Supabase client
-import Navbar from "../components/Navbar"; // Assuming Navbar component is in 'components'
-import Footer from "../components/Footer"; // Assuming Footer component is in 'components'
-import Loader from "../components/Loader"; // Import the Loader component
+import { useRouter } from "next/router"; // For navigation
+import supabase from "../../supabaseClient"; 
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Loader from "../components/Loader";
 import '../app/globals.css';
 
 const Packages = () => {
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        // Fetch packages from Supabase
         const { data, error } = await supabase
-          .from("packages") // Replace with your Supabase table name
-          .select("*"); // Fetch all columns
-
+          .from("packages")
+          .select("*");
         if (error) throw error;
-
-        // Set the fetched packages to state
         setPackages(data);
       } catch (error) {
         console.error("Error fetching packages: ", error);
@@ -31,15 +29,11 @@ const Packages = () => {
     fetchPackages();
   }, []);
 
-  // Show the Loader while data is being fetched
   if (loading) return <Loader />;
 
   return (
     <div>
-      {/* Navbar */}
       <Navbar />
-
-      {/* Packages Section */}
       <div className="py-8 pt-44 bg-gray-50 dark:bg-gray-900">
         <h1 className="mb-8 text-4xl font-bold text-center text-[#114B5F] dark:text-[#114B5F]">
           Travel Packages
@@ -57,7 +51,7 @@ const Packages = () => {
                   className="p-6 transition-transform duration-300 bg-white rounded-lg shadow-lg hover:scale-105 dark:bg-gray-800"
                 >
                   <img
-                    src={pkg.image_url || "/images/default-image.jpg"} // Use image_url from Supabase
+                    src={pkg.image_url || "/images/default-image.jpg"}
                     alt={pkg.name}
                     className="object-cover w-full h-48 rounded-lg"
                   />
@@ -70,7 +64,15 @@ const Packages = () => {
                   <p className="mt-4 text-xl font-semibold text-[#114B5F] dark:text-[#114B5F]">
                     ₹{pkg.price}
                   </p>
-                  <button className="w-full px-6 py-2 mt-6 text-white bg-[#114B5F] rounded-lg hover:bg-[#0D3A4A] transition-colors duration-300">
+                  <button
+                    className="w-full px-6 py-2 mt-6 text-white bg-[#114B5F] rounded-lg hover:bg-[#0D3A4A] transition-colors duration-300"
+                    onClick={() =>
+                      router.push({
+                        pathname: "/PaymentPortal",
+                        query: { id: pkg.id },
+                      })
+                    }
+                  >
                     Book Now
                   </button>
                 </div>
@@ -79,8 +81,6 @@ const Packages = () => {
           )}
         </div>
       </div>
-
-      {/* Footer */}
       <Footer />
     </div>
   );

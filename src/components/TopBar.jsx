@@ -4,13 +4,13 @@ import { FaPhone, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 
 const TopBar = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-[#114B5F] text-teal-200 py-2 shadow-md">
+    <div className="fixed top-0 left-0 right-0 z-50 py-2 text-orange-100 shadow-md bg-blue-950">
       <div className="container px-4 mx-auto">
         <div className="flex flex-col items-center justify-center space-y-2 text-sm md:flex-row md:space-y-0 md:space-x-10">
           {/* Phone Number */}
           <div className="flex items-center space-x-2">
             <FaPhone className="text-white" />
-            <a href="tel:+91194548250" className="transition-colors hover:text-gray-300">
+            <a href="tel:+91194548250" className="transition-colors hover:text-orange-300">
               +91 194 2458250
             </a>
           </div>
@@ -22,7 +22,7 @@ const TopBar = () => {
               href="https://wa.me/917006297432"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-gray-300"
+              className="transition-colors hover:text-orange-300"
             >
               +91 700 629 7432
             </a>
@@ -33,7 +33,7 @@ const TopBar = () => {
             <FaEnvelope className="text-white" />
             <a
               href="mailto:suwidatourandtravels@gmail.com"
-              className="transition-colors hover:text-gray-300"
+              className="transition-colors hover:text-orange-300"
             >
               suwidatourandtravels@gmail.com
             </a>
