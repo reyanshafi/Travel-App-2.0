@@ -36,7 +36,7 @@ export default function MaintenancePage() {
         className="p-8 text-center bg-white shadow-lg rounded-xl bg-opacity-10 backdrop-blur-md"
       >
         <motion.h1
-          className="mb-4 text-5xl font-extrabold"
+          className="mb-4 text-4xl font-extrabold sm:text-5xl"
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -44,14 +44,14 @@ export default function MaintenancePage() {
           🚀 Suwida Tour and Travels
         </motion.h1>
         <motion.p
-          className="mb-6 text-lg"
+          className="mb-6 text-base sm:text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.5 }}
         >
           Our website is currently under development. We're working hard to bring you an amazing experience. Stay tuned!
         </motion.p>
-        <div className="flex items-center justify-center mt-4 space-x-6">
+        <div className="flex items-center justify-center mt-4 space-x-6 sm:space-x-12">
           <TimerBox label="Days" value={timeLeft.days} />
           <TimerBox label="Hours" value={timeLeft.hours} />
           <TimerBox label="Minutes" value={timeLeft.minutes} />
@@ -87,7 +87,7 @@ export default function MaintenancePage() {
 function TimerBox({ label, value }) {
   return (
     <div className="flex flex-col items-center px-4 py-2 bg-white rounded-lg shadow-md bg-opacity-20">
-      <span className="text-3xl font-bold">{value.toString().padStart(2, '0')}</span>
+      <span className="text-3xl font-bold sm:text-4xl">{value.toString().padStart(2, '0')}</span>
       <span className="text-sm tracking-wider uppercase">{label}</span>
     </div>
   );
