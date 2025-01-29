@@ -33,7 +33,7 @@ export default function MaintenancePage() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="p-8 text-center bg-white shadow-lg rounded-xl bg-opacity-10 backdrop-blur-md"
+        className="p-8 mx-4 text-center bg-white shadow-lg rounded-xl bg-opacity-10 backdrop-blur-md"
       >
         <motion.h1
           className="mb-4 text-4xl font-extrabold sm:text-5xl"
@@ -51,7 +51,7 @@ export default function MaintenancePage() {
         >
           Our website is currently under development. We're working hard to bring you an amazing experience. Stay tuned!
         </motion.p>
-        <div className="flex items-center justify-center mt-4 space-x-6 sm:space-x-12">
+        <div className="flex flex-wrap items-center justify-center mt-4 space-x-2 sm:space-x-6">
           <TimerBox label="Days" value={timeLeft.days} />
           <TimerBox label="Hours" value={timeLeft.hours} />
           <TimerBox label="Minutes" value={timeLeft.minutes} />
@@ -70,6 +70,14 @@ export default function MaintenancePage() {
             Refresh Page
           </button>
         </motion.div>
+        <motion.p
+          className="mt-4 text-sm text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 1 }}
+        >
+          For any assistance, contact: <a href="tel:+919906512509" className="underline">+91 9906512509</a>
+        </motion.p>
       </motion.div>
 
       <motion.div
@@ -86,7 +94,7 @@ export default function MaintenancePage() {
 
 function TimerBox({ label, value }) {
   return (
-    <div className="flex flex-col items-center px-4 py-2 bg-white rounded-lg shadow-md bg-opacity-20">
+    <div className="flex flex-col items-center px-4 py-2 m-2 bg-white rounded-lg shadow-md bg-opacity-20">
       <span className="text-3xl font-bold sm:text-4xl">{value.toString().padStart(2, '0')}</span>
       <span className="text-sm tracking-wider uppercase">{label}</span>
     </div>
