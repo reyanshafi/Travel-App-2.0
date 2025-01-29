@@ -1,8 +1,9 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
-const Packages = () => {
+const Packages = React.memo(() => {
   const packages = [
     {
       id: 1,
@@ -27,13 +28,17 @@ const Packages = () => {
     },
   ];
 
+  const handleImageError = (e) => {
+    e.target.src = '/images/placeholder.jpg';
+  };
+
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white" aria-labelledby="packages-heading">
       <div className="max-w-screen-xl px-6 mx-auto sm:px-8 lg:px-12">
         {/* Heading */}
         <div className="mb-10 text-center">
           <p className="mb-2 text-lg font-semibold text-orange-600">Explore Kashmir</p>
-          <h2 className="mb-4 text-4xl font-bold text-blue-950">
+          <h2 id="packages-heading" className="mb-4 text-4xl font-bold text-blue-950">
             Discover Our Kashmir Packages
           </h2>
           <p className="max-w-2xl mx-auto text-gray-600">
@@ -47,18 +52,22 @@ const Packages = () => {
             <div
               key={pkg.id}
               className="overflow-hidden transition-shadow duration-300 bg-white border border-gray-100 rounded-lg shadow-lg cursor-pointer hover:shadow-xl"
+              aria-labelledby={`package-${pkg.id}-title`}
             >
               {/* Package Image */}
-              <img
-                src={pkg.icon}
-                alt={pkg.titlePart2}
-                className="object-cover w-full h-48"
-                onError={(e) => (e.target.src = '/images/placeholder.jpg')}
-              />
+              <div className="relative w-full h-48">
+                <Image
+                  src={pkg.icon}
+                  alt={pkg.titlePart2}
+                  layout="fill"
+                  objectFit="cover"
+                  onError={handleImageError}
+                />
+              </div>
 
               {/* Package Details */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-blue-950">
+                <h3 id={`package-${pkg.id}-title`} className="text-2xl font-bold text-blue-950">
                   {pkg.titlePart1} <br />
                   <span className="text-orange-600">{pkg.titlePart2}</span>
                 </h3>
@@ -86,6 +95,8 @@ const Packages = () => {
       </div>
     </section>
   );
-};
+});
+
+Packages.displayName = 'Packages';
 
 export default Packages;
