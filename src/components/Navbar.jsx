@@ -59,12 +59,12 @@ const Navbar = () => {
               >
                 Get Quote
               </button>
-              <button
-                type="button"
-                className="px-4 py-2 text-sm font-medium text-blue-900 bg-white border-2 border-blue-900 rounded-none hover:bg-gray-100"
+              <Link href="/packages">
+              <button type="button" className="px-4 py-2 text-sm font-medium text-blue-900 bg-white border-2 border-blue-900 rounded-none hover:bg-gray-100"
               >
                 Book Now
               </button>
+              </Link>
             </div>
           </div>
 
@@ -133,7 +133,7 @@ const Navbar = () => {
                   onClick={() => setMenuOpen(false)}
                   className={`px-3 py-2 ${
                     isActive(href)
-                      ? 'text-blue-900 dark:text-orange-400 font-semibold'
+                      ? 'text-orange-600 dark:text-orange-400 font-semibold'
                       : 'text-gray-700 dark:text-gray-300 hover:text-blue-900 dark:hover:text-orange-400'
                   }`}
                 >
@@ -150,7 +150,7 @@ const Navbar = () => {
                 </button>
                 <button
                   type="button"
-                  className="w-full px-4 py-2 text-sm font-medium text-blue-900 border-2 border-blue-900 hover:bg-gray-100"
+                  className="w-full px-4 py-2 text-sm font-medium text-blue-900 border-2 border-orange-600 hover:bg-gray-100"
                 >
                   Book Now
                 </button>

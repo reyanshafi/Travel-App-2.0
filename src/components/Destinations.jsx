@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Destinations = React.memo(() => {
   const destinations = [
@@ -58,12 +59,16 @@ const Destinations = React.memo(() => {
                   </h3>
                   <p className="text-gray-600">{destination.description}</p>
                 </div>
-                <button
-                  className="px-6 py-2.5 font-semibold text-white bg-orange-600 rounded-md hover:bg-orange-700 transition-colors"
-                  aria-label={`Explore ${destination.name}`}
-                >
-                  Explore
-                </button>
+                <Link href="/destinations">
+                  
+                    <button
+                      className="px-6 py-2.5 font-semibold text-white bg-orange-600 rounded-md hover:bg-orange-700 transition-colors"
+                      aria-label={`Explore destinations`}
+                    >
+                      Explore
+                    </button>
+                  
+                </Link>
               </div>
             </div>
           ))}
@@ -71,12 +76,16 @@ const Destinations = React.memo(() => {
 
         {/* More Destinations Button */}
         <div className="mt-12 text-center">
-          <button
-            className="px-8 py-3 text-lg font-semibold text-white transition-colors bg-orange-600 rounded-md hover:bg-orange-700"
-            aria-label="View all destinations"
-          >
-            View All Destinations
-          </button>
+          <Link href="/destinations">
+           
+              <button
+                className="px-8 py-3 text-lg font-semibold text-white transition-colors bg-orange-600 rounded-md hover:bg-orange-700"
+                aria-label="View all destinations"
+              >
+                View All Destinations
+              </button>
+            
+          </Link>
         </div>
       </div>
     </section>

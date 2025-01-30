@@ -23,7 +23,7 @@ const SeasonalDeals = () => {
               Book now and create unforgettable memories!
             </p>
 
-            <Link href="/offers">
+            <Link href="/services">
               <button className="px-8 py-3 text-lg font-semibold text-white transition-colors bg-orange-600 rounded-md hover:bg-orange-700">
                 Learn More
               </button>
@@ -45,7 +45,7 @@ const SeasonalDeals = () => {
                 Enjoy special rates on select packages for a limited time.
                 Grab your chance to save big on your next Himalayan adventure.
               </p>
-              <Link href="/booking">
+              <Link href="/packages">
                 <button className="w-full px-6 py-3 text-lg font-semibold text-white transition-colors bg-orange-600 rounded-md hover:bg-orange-700">
                   Book Now
                 </button>

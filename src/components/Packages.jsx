@@ -88,7 +88,7 @@ const Packages = React.memo(() => {
         <div className="mt-12 text-center">
           <Link href="/packages" passHref>
             <button className="px-8 py-3 text-lg font-semibold text-white transition-colors bg-orange-600 rounded-md cursor-pointer hover:bg-orange-700">
-              View All Kashmir Tours
+              View All Packages
             </button>
           </Link>
         </div>

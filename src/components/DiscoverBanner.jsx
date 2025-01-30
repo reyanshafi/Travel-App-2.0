@@ -26,12 +26,12 @@ const DiscoverAdventure = React.memo(() => {
             </p>
 
             <div className="mt-8">
-              <Link href="/tours" passHref>
+              <Link href="https://wa.me/917006297432" passHref>
                 <button
                   className="px-8 py-3 text-lg font-semibold text-white transition-colors bg-orange-600 rounded-md cursor-pointer hover:bg-orange-700"
                   aria-label="Explore packages"
                 >
-                  Explore Packages
+                  Get Quote
                 </button>
               </Link>
             </div>

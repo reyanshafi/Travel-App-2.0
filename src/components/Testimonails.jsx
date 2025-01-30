@@ -101,7 +101,9 @@ const TestimonialsSlider = () => {
           </div>
 
           {/* CTA */}
-          <button className="px-8 py-3 text-lg font-semibold text-white transition-colors bg-orange-600 rounded-md hover:bg-orange-700">
+          <button
+          onClick={() => window.location.href = '/about'}
+          className="px-8 py-3 text-lg font-semibold text-white transition-colors bg-orange-600 rounded-md hover:bg-orange-700">
             Read More Stories
           </button>
         </div>

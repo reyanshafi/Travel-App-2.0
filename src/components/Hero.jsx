@@ -3,6 +3,8 @@ import React, { useEffect, useState, useCallback, memo } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowRight, FiMapPin } from 'react-icons/fi';
+import Link from 'next/link';
+
 
 const slides = [
   {
@@ -129,13 +131,17 @@ const Hero = () => {
 
               {/* Buttons */}
               <div className="flex flex-col gap-4 sm:flex-row">
+               <Link href='/packages'>
                 <button className="flex items-center justify-center gap-3 px-6 py-4 text-white transition-all bg-orange-500 rounded-xl hover:bg-orange-600">
                   <span>Explore Packages</span>
                   <FiArrowRight className="w-5 h-5" />
                 </button>
-                <button className="px-6 py-4 text-orange-500 transition-all border border-orange-500/30 rounded-xl hover:bg-orange-500/10">
-                  Customize Tour
+                </Link>
+                <Link href='/destinations'>
+                <button className="px-6 py-4 text-orange-400 transition-all border border-orange-500/30 rounded-xl hover:bg-orange-500/10">
+                  Destinations
                 </button>
+                </Link>
               </div>
             </motion.div>
           </AnimatePresence>
