@@ -40,7 +40,7 @@ const StyledWrapper = styled.div`
   .jimu-primary-loading:before,
   .jimu-primary-loading:after,
   .jimu-primary-loading {
-    background: #076fe5;
+    background: #1e3a8a; /* blue-950 */
     -webkit-animation: loading-keys-app-loading 0.8s infinite ease-in-out;
     animation: loading-keys-app-loading 0.8s infinite ease-in-out;
     width: 13.6px;
@@ -63,13 +63,13 @@ const StyledWrapper = styled.div`
     80%,
     100% {
       opacity: .75;
-      box-shadow: 0 0 #076fe5;
+      box-shadow: 0 0 #1e3a8a; /* blue-950 */
       height: 32px;
     }
 
     40% {
       opacity: 1;
-      box-shadow: 0 -8px #076fe5;
+      box-shadow: 0 -8px #f97316; /* orange-600 */
       height: 40px;
     }
   }
@@ -80,16 +80,16 @@ const StyledWrapper = styled.div`
     80%,
     100% {
       opacity: .75;
-      box-shadow: 0 0 #076fe5;
+      box-shadow: 0 0 #1e3a8a; /* blue-950 */
       height: 32px;
     }
 
     40% {
       opacity: 1;
-      box-shadow: 0 -8px #076fe5;
+      box-shadow: 0 -8px #f97316; /* orange-600 */
       height: 40px;
     }
-  }`;   
+  }
+`;
 
 export default Loader;
-    

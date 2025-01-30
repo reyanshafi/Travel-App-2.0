@@ -1,92 +1,124 @@
-import { useEffect, useState } from "react";
-import supabase from "../../../supabaseClient"; // Correct import
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
+import supabase from "../../../supabaseClient";
 import AdminHeader from "./AdminHeader";
-import '../../app/globals.css';
 import Navbar from "@/components/Navbar";
+import '../../app/globals.css';
 
 const AdminDashboard = () => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
+  // Check if the user is authenticated
+  const checkAuth = useCallback(async () => {
+    const { data: { user }, error } = await supabase.auth.getUser();
+    if (error) throw error;
+    return user;
+  }, []);
+
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session) {
-        setUser(session.user); // Set the user if logged in
-      } else {
-        router.push("/admin/login"); // Redirect to login page if not logged in
+    const initializeAuth = async () => {
+      try {
+        const currentUser = await checkAuth();
+        if (!currentUser) {
+          // Redirect to login if no user is found
+          router.push("/admin/login");
+          return;
+        }
+        setUser(currentUser);
+      } catch (error) {
+        console.error("Auth error:", error);
+        router.push("/admin/login");
+      } finally {
+        setLoading(false);
       }
-    });
+    };
 
-    return () => subscription.unsubscribe(); // Cleanup function
-  }, [router]);
+    // Listen for auth state changes (e.g., user logs out)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (session?.user) {
+          setUser(session.user);
+        } else {
+          // Redirect to login if the user is not authenticated
+          router.push("/admin/login");
+        }
+      }
+    );
 
-  if (!user) return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="w-12 h-12 border-4 border-[#114B5F] rounded-full loader"></div>
-    </div>
-  );
+    // Initialize auth check
+    initializeAuth();
 
-  return (
-    <>
-      <Navbar isHeroPage={false} />
-      <div className="min-h-screen mt-32 bg-gray-50 dark:bg-gray-900">
-        <AdminHeader />
-        <div className="container px-6 py-10 mx-auto">
-          <h1 className="mb-6 text-4xl font-bold text-center text-[#114B5F] dark:text-[#114B5F]">
-            Welcome, {user.name}
-          </h1>
-          <p className="mb-8 text-xl text-center text-gray-700 dark:text-gray-300">
-            Admin Dashboard
-          </p>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Admin Controls */}
-            <div className="p-8 transition-transform duration-300 bg-white rounded-lg shadow-lg hover:scale-105 dark:bg-gray-800">
-              <div className="text-center">
-                <h3 className="mb-4 text-2xl font-bold text-[#114B5F] dark:text-[#114B5F]">
-                  Manage Packages
-                </h3>
-                <p className="mb-6 text-gray-600 dark:text-gray-400">
-                  View, add, edit, and delete travel packages.
-                </p>
-                <button className="px-6 py-2 text-white bg-[#114B5F] rounded-lg hover:bg-[#0D3A4A] transition-colors duration-300">
-                  Go to Packages
-                </button>
-              </div>
-            </div>
+    // Cleanup subscription on unmount
+    return () => subscription?.unsubscribe();
+  }, [checkAuth, router]);
 
-            <div className="p-8 transition-transform duration-300 bg-white rounded-lg shadow-lg hover:scale-105 dark:bg-gray-800">
-              <div className="text-center">
-                <h3 className="mb-4 text-2xl font-bold text-[#114B5F] dark:text-[#114B5F]">
-                  Manage Destinations
-                </h3>
-                <p className="mb-6 text-gray-600 dark:text-gray-400">
-                  View, add, edit, and delete travel destinations.
-                </p>
-                <button className="px-6 py-2 text-white bg-[#114B5F] rounded-lg hover:bg-[#0D3A4A] transition-colors duration-300">
-                  Go to Destinations
-                </button>
-              </div>
-            </div>
-
-            <div className="p-8 transition-transform duration-300 bg-white rounded-lg shadow-lg hover:scale-105 dark:bg-gray-800">
-              <div className="text-center">
-                <h3 className="mb-4 text-2xl font-bold text-[#114B5F] dark:text-[#114B5F]">
-                  Manage Bookings
-                </h3>
-                <p className="mb-6 text-gray-600 dark:text-gray-400">
-                  View and manage customer bookings and orders.
-                </p>
-                <button className="px-6 py-2 text-white bg-[#114B5F] rounded-lg hover:bg-[#0D3A4A] transition-colors duration-300">
-                  View Bookings
-                </button>
-              </div>
-            </div>
-          </div>
+  // Show a loading spinner while checking auth
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-white">
+        <div className="animate-bounce">
+          <div className="w-12 h-12 rounded-full bg-blue-950"></div>
         </div>
       </div>
-    </>
+    );
+  }
+
+  // If the user is authenticated, render the dashboard
+  return (
+    <div className="min-h-screen bg-white">
+      <Navbar isHeroPage={false} />
+      
+      <main className="pt-32 mt-10 bg-white">
+        <AdminHeader />
+        
+        <div className="container px-4 mx-auto mt-24 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="mb-6 text-4xl font-bold text-blue-950 md:text-5xl">
+              Welcome, {user.user_metadata?.name || 'Admin'}
+            </h1>
+            <p className="mb-8 text-xl text-gray-600">
+              Manage your travel portal content
+            </p>
+          </div>
+
+          <div className="grid gap-8 mt-12 sm:grid-cols-1 lg:grid-cols-2">
+            <DashboardCard 
+              title="Manage Packages"
+              description="Create, edit, and organize travel packages"
+              actionText="View Packages"
+              actionLink="/admin/packages"
+            />
+
+            <DashboardCard 
+              title="Manage Gallery"
+              description="Manage destination images and media content"
+              actionText="View Gallery"
+              actionLink="/admin/gallery"
+            />
+          </div>
+        </div>
+      </main>
+    </div>
   );
 };
+
+// DashboardCard component for reusable cards
+const DashboardCard = ({ title, description, actionText, actionLink }) => (
+  <div className="p-6 transition-all duration-300 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:border-orange-600">
+    <div className="text-center">
+      <h3 className="mb-3 text-xl font-semibold text-blue-950">{title}</h3>
+      <p className="mb-5 text-gray-600">{description}</p>
+      <a
+        href={actionLink}
+        className="inline-block px-5 py-2.5 text-sm font-medium text-white transition-colors bg-orange-600 rounded-lg hover:bg-orange-700 focus:ring-4 focus:ring-orange-300"
+        aria-label={`Go to ${title}`}
+      >
+        {actionText}
+      </a>
+    </div>
+  </div>
+);
 
 export default AdminDashboard;
