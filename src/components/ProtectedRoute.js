@@ -11,7 +11,7 @@ const ProtectedRoute = ({ children }) => {
       const { data: { session }, error } = await supabase.auth.getSession();
 
       if (!session || error) {
-        router.push("/admin/login"); // Redirect to login if not authenticated
+        router.push("/login"); // Redirect to login if not authenticated
       }
     };
 
