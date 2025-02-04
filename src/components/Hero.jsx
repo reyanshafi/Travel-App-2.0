@@ -55,7 +55,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative flex flex-col w-full h-screen pt-2 mt-36 md:flex-row">
+    <div className="relative flex flex-col w-full h-screen pt-6 mt-32 md:flex-row">
       {/* Image Section (Left 55%) */}
       <div className="relative w-full md:w-[55%] h-[60vh] md:h-full overflow-hidden">
         <AnimatePresence mode='wait'>

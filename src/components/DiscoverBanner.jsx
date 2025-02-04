@@ -43,7 +43,7 @@ const DiscoverAdventure = React.memo(() => {
               <Image
                 src="/images/kashmir-adventure.jpg"
                 alt="Kashmir Adventure"
-                layout="fill"
+                fill
                 objectFit="cover"
                 onError={handleImageError}
               />

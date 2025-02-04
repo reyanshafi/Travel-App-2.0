@@ -1,4 +1,6 @@
 'use client';
+import Head from 'next/head';
+
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation'; // Updated import for Next.js 13+
@@ -11,6 +13,16 @@ const About = () => {
 
   return (
     <>
+     <Head>
+        <title>About Us - KashmirExplorer | Discover Our Story</title>
+        <meta name="description" content="Learn about KashmirExplorer's mission to provide unparalleled Kashmiri journeys. Discover our commitment to sustainability, authenticity, and excellence in Kashmir tourism." />
+        <meta name="keywords" content="Kashmir Tourism, Kashmiri Journeys, Himalayan Tourism, Kashmir Travel Packages, Sustainable Tourism Kashmir" />
+        <meta property="og:title" content="About Us - KashmirExplorer | Discover Our Story" />
+        <meta property="og:description" content="Learn about KashmirExplorer's mission to provide unparalleled Kashmiri journeys. Discover our commitment to sustainability, authenticity, and excellence in Kashmir tourism." />
+        <meta property="og:image" content="/images/mission.jpg" />
+        <meta property="og:url" content="https://www.kashmirexplorer.com/about" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
       <Navbar isHeroPage={false} />
       <main className="bg-white">
         {/* Hero Section */}

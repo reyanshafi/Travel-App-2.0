@@ -45,7 +45,7 @@ const Destinations = React.memo(() => {
                 <Image
                   src={destination.image}
                   alt={destination.name}
-                  layout="fill"
+                  fill
                   objectFit="cover"
                   onError={handleImageError}
                 />

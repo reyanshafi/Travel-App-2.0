@@ -17,7 +17,7 @@ const AdminHeader = () => {
   const navigation = [
     { name: "Dashboard", href: "/admin/dashboard", icon: CogIcon },
     { name: "Packages", href: "/admin/packages", icon: CubeIcon },
-    { name: "Gallery", href: "/admin/gallery", icon: UserCircleIcon },
+    { name: "Gallery", href: "/admin/AdminGallery", icon: UserCircleIcon },
   ];
 
   // Logout function
@@ -34,7 +34,7 @@ const AdminHeader = () => {
   };
 
   return (
-    <header className="fixed w-full bg-white border-b border-gray-200 shadow-sm">
+    <header className="w-full bg-white border-b border-gray-200 shadow-sm ">
       <div className="container px-4 mx-auto sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo Section */}
@@ -55,15 +55,18 @@ const AdminHeader = () => {
                 href={item.href}
                 className={`flex items-center px-1 pt-1 text-sm font-medium ${
                   router.pathname === item.href
-                    ? "text-orange-600 border-b-2 border-orange-600"
-                    : "text-blue-950 hover:text-orange-600 hover:border-b-2 hover:border-orange-600"
+                    ? "text-orange-600 pb-1 border-b-2 border-orange-600"
+                    : "text-blue-950 hover:text-orange-600 "
                 } transition-colors`}
               >
                 <item.icon className="w-5 h-5 mr-2" />
                 {item.name}
               </Link>
             ))}
-          </nav>
+            <Link href='/'>
+              <button  className="px-4 mt-1 text-white bg-red-600 rounded-md">Return to Website</button>
+              </Link>         
+               </nav>
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden">
@@ -86,6 +89,7 @@ const AdminHeader = () => {
                 />
               </svg>
             </button>
+            
           </div>
 
           {/* Logout Desktop */}
@@ -127,6 +131,7 @@ const AdminHeader = () => {
                   {item.name}
                 </Link>
               ))}
+
               <button
                 onClick={handleLogout} // Call handleLogout on click
                 className="flex items-center w-full px-3 py-2 text-base font-medium rounded-lg text-blue-950 hover:bg-gray-100 hover:text-orange-600"
@@ -134,6 +139,10 @@ const AdminHeader = () => {
                 <ArrowRightOnRectangleIcon className="w-5 h-5 mr-3" />
                 Logout
               </button>
+              <Link href='/'>
+              <button  className="px-4 ml-4 text-white bg-red-600 rounded-md">Return to Website</button>
+              </Link>
+              
             </div>
           </div>
         </Transition>

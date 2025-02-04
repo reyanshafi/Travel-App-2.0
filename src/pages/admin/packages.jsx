@@ -179,7 +179,7 @@ const ManagePackages = () => {
                   type="text"
                   value={newPackage.name}
                   onChange={(e) => setNewPackage({ ...newPackage, name: e.target.value })}
-                  className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-transparent"
+                  className="w-full px-4 py-2 mt-1 text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                   placeholder="Himalayan Adventure"
                 />
               </div>
@@ -196,7 +196,7 @@ const ManagePackages = () => {
                     type="number"
                     value={newPackage.price}
                     onChange={(e) => setNewPackage({ ...newPackage, price: e.target.value })}
-                    className="w-full py-2 pl-8 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-transparent"
+                    className="w-full py-2 pl-8 pr-4 border text-gray-900 border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                     placeholder="29999"
                   />
                 </div>
@@ -210,7 +210,7 @@ const ManagePackages = () => {
                   value={newPackage.description}
                   onChange={(e) => setNewPackage({ ...newPackage, description: e.target.value })}
                   rows="3"
-                  className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-transparent"
+                  className="w-full px-4 py-2 mt-1 border text-gray-900 border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-600 focus:border-transparent"
                   placeholder="Describe the package..."
                 />
               </div>

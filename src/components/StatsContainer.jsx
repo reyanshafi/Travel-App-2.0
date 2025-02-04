@@ -26,7 +26,7 @@ const StatsContainer = React.memo(() => {
   ];
 
   return (
-    <div className="justify-center hidden p-6 -mt-10 sm:flex">
+    <div className="justify-center bg-white hidden p-6 -mt-20 sm:flex">
       <div
         className="grid w-full max-w-6xl grid-cols-2 gap-4 p-4 bg-white rounded-none shadow-md md:grid-cols-4 drop-shadow-lg"
         role="region"

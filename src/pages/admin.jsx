@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import supabase from "../../../supabaseClient"; // Import Supabase client
-import '../../app/globals.css';
+import supabase from "../../supabaseClient"; // Import Supabase client
+import '../app/globals.css';
 import Link from "next/link";
-import ProtectedRoute from "../../components/ProtectedRoute";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -53,7 +53,7 @@ const AdminLogin = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-900" // Added text-gray-900
               />
             </div>
 
@@ -65,7 +65,7 @@ const AdminLogin = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-900" // Added text-gray-900
               />
             </div>
 
@@ -76,8 +76,6 @@ const AdminLogin = () => {
               Login
             </button>
           </form>
-
-          
         </div>
       </div>
     </ProtectedRoute>

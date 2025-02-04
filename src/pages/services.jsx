@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import '../app/globals.css';
+import Head from 'next/head';
 
 // ServiceCard Component wrapped in React.memo
 const ServiceCard = React.memo(({ service }) => (
@@ -75,7 +76,7 @@ const Services = () => {
 
   // WhatsApp integration function
   const handleGetQuote = useCallback(() => {
-    const phoneNumber = '1234567890'; // Replace with your WhatsApp business number
+    const phoneNumber = '917006297432'; // Replace with your WhatsApp business number
     const message = encodeURIComponent('Hi KashmirExplorer, I would like to get a quote for your services.');
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   }, []);
@@ -90,85 +91,101 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="bg-white">
-      <Navbar />
+    <>
+      {/* SEO Meta Tags */}
+      <Head>
+        <title>Kashmir Travel Services | Suwida Tour and Travels</title>
+        <meta
+          name="description"
+          content="Discover the best travel services in Kashmir with KashmirExplorer. From customized tour packages to houseboat stays, adventure activities, and cultural experiences, we make your trip unforgettable."
+        />
+        <meta
+          name="keywords"
+          content="Kashmir travel, Kashmir tours, Suwida Tour and Travels, Kashmir houseboat stays, Kashmir adventure activities, customized tour packages, cultural experiences in Kashmir, wellness retreats, photography tours"
+        />
+        <link rel="canonical" href="https://www.suwidatourandtravels.in/services" />
+      </Head>
 
-      {/* Hero Section */}
-      <section className="relative mt-36 py-32 bg-[url('/images/kashmir.jpg')] bg-cover bg-center">
-        <div className="absolute inset-0 bg-black opacity-60"></div>
-        <div className="relative max-w-screen-xl px-4 mx-auto text-center">
-          <h1 className="mb-6 text-5xl font-bold text-gray-200 md:text-6xl drop-shadow-md">
-            Discover <span className="text-orange-500">Kashmir</span> with Us
-          </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white">
-            Experience the magic of Kashmir with our expertly curated services. From adventure to relaxation, we’ve got you covered.
-          </p>
-        </div>
-      </section>
+      <div className="bg-white">
+        <Navbar />
 
-      {/* Featured Services Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-blue-950 md:text-4xl">Our Featured Services</h2>
-            <p className="max-w-2xl mx-auto mt-4 text-lg text-gray-700">
-              Explore our most popular services designed to make your Kashmir trip unforgettable.
+        {/* Hero Section */}
+        <section className="relative mt-36 py-32 bg-[url('/images/kashmir.jpg')] bg-cover bg-center">
+          <div className="absolute inset-0 bg-black opacity-60"></div>
+          <div className="relative max-w-screen-xl px-4 mx-auto text-center">
+            <h1 className="mb-6 text-5xl font-bold text-gray-200 md:text-6xl drop-shadow-md">
+              Discover <span className="text-orange-500">Kashmir</span> with Us
+            </h1>
+            <p className="max-w-2xl mx-auto text-lg text-white">
+              Experience the magic of Kashmir with our expertly curated services. From adventure to relaxation, we’ve got you covered.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-8 mt-12 md:grid-cols-2 lg:grid-cols-4">
-            {services.slice(0, 4).map((service, index) => (
-              <ServiceCard key={index} service={service} />
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-blue-950 md:text-4xl">Why Choose KashmirExplorer?</h2>
-            <p className="max-w-2xl mx-auto mt-4 text-lg text-gray-700">
-              We are committed to providing you with the best travel experience in Kashmir.
+        {/* Featured Services Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-blue-950 md:text-4xl">Our Featured Services</h2>
+              <p className="max-w-2xl mx-auto mt-4 text-lg text-gray-700">
+                Explore our most popular services designed to make your Kashmir trip unforgettable.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-8 mt-12 md:grid-cols-2 lg:grid-cols-4">
+              {services.slice(0, 4).map((service, index) => (
+                <ServiceCard key={index} service={service} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-blue-950 md:text-4xl">Why Choose KashmirExplorer?</h2>
+              <p className="max-w-2xl mx-auto mt-4 text-lg text-gray-700">
+                We are committed to providing you with the best travel experience in Kashmir.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-8 mt-12 md:grid-cols-3">
+              {[{ icon: '🌟', title: 'Expert Guides', text: 'Our experienced guides ensure you discover the best of Kashmir.' },
+                { icon: '💎', title: 'Tailored Experiences', text: 'Customized tours designed to match your preferences.' },
+                { icon: '🛡️', title: 'Safety First', text: 'Your safety is our top priority at all times.' }
+              ].map((item, index) => (
+                <WhyChooseUsItem key={index} item={item} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Call-to-Action Section */}
+        <section className="py-16 bg-blue-950">
+          <div className="max-w-screen-xl px-4 mx-auto text-center sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-white md:text-4xl">Ready to Explore Kashmir?</h2>
+            <p className="max-w-2xl mx-auto mt-4 text-lg text-orange-100">
+              Contact us today to book your dream trip and experience the magic of Kashmir.
             </p>
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <button
+                onClick={handleGetQuote}
+                className="px-8 py-4 font-bold text-white transition-all duration-300 bg-orange-500 rounded-lg hover:bg-orange-600 focus:ring-4 focus:ring-orange-300"
+              >
+                Get Free Quote
+              </button>
+              <Link
+                href="/packages"
+                className="px-8 py-4 font-bold transition-all duration-300 bg-white border-2 border-white rounded-lg text-blue-950 hover:bg-transparent hover:text-white"
+              >
+                Book Package Now
+              </Link>
+            </div>
           </div>
-          <div className="grid grid-cols-1 gap-8 mt-12 md:grid-cols-3">
-            {[{ icon: '🌟', title: 'Expert Guides', text: 'Our experienced guides ensure you discover the best of Kashmir.' },
-              { icon: '💎', title: 'Tailored Experiences', text: 'Customized tours designed to match your preferences.' },
-              { icon: '🛡️', title: 'Safety First', text: 'Your safety is our top priority at all times.' }
-            ].map((item, index) => (
-              <WhyChooseUsItem key={index} item={item} />
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Call-to-Action Section */}
-      <section className="py-16 bg-blue-950">
-        <div className="max-w-screen-xl px-4 mx-auto text-center sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-white md:text-4xl">Ready to Explore Kashmir?</h2>
-          <p className="max-w-2xl mx-auto mt-4 text-lg text-orange-100">
-            Contact us today to book your dream trip and experience the magic of Kashmir.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <button
-              onClick={handleGetQuote}
-              className="px-8 py-4 font-bold text-white transition-all duration-300 bg-orange-500 rounded-lg hover:bg-orange-600 focus:ring-4 focus:ring-orange-300"
-            >
-              Get Free Quote
-            </button>
-            <Link
-              href="/packages"
-              className="px-8 py-4 font-bold transition-all duration-300 bg-white border-2 border-white rounded-lg text-blue-950 hover:bg-transparent hover:text-white"
-            >
-              Book Package Now
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

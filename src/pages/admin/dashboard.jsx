@@ -68,16 +68,17 @@ const AdminDashboard = () => {
   // If the user is authenticated, render the dashboard
   return (
     <div className="min-h-screen bg-white">
-      <Navbar isHeroPage={false} />
+      {/* <Navbar isHeroPage={false} /> */}
       
-      <main className="pt-32 mt-10 bg-white">
+      <main className="bg-white ">
         <AdminHeader />
         
         <div className="container px-4 mx-auto mt-24 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="mb-6 text-4xl font-bold text-blue-950 md:text-5xl">
-              Welcome, {user.user_metadata?.name || 'Admin'}
+            <span className="text-orange-500">Suwida</span> Tour & Travels
             </h1>
+            <h2 className="mb-4 text-3xl font-bold text-gray-900">Admin Portal</h2>
             <p className="mb-8 text-xl text-gray-600">
               Manage your travel portal content
             </p>
@@ -89,13 +90,14 @@ const AdminDashboard = () => {
               description="Create, edit, and organize travel packages"
               actionText="View Packages"
               actionLink="/admin/packages"
+      
             />
 
             <DashboardCard 
               title="Manage Gallery"
               description="Manage destination images and media content"
               actionText="View Gallery"
-              actionLink="/admin/gallery"
+              actionLink="/admin/AdminGallery"
             />
           </div>
         </div>
@@ -106,13 +108,13 @@ const AdminDashboard = () => {
 
 // DashboardCard component for reusable cards
 const DashboardCard = ({ title, description, actionText, actionLink }) => (
-  <div className="p-6 transition-all duration-300 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:border-orange-600">
+  <div className="p-6 transition-all duration-300 bg-white border border-gray-200 shadow-xl rounded-xl hover:shadow-lg hover:border-orange-600">
     <div className="text-center">
       <h3 className="mb-3 text-xl font-semibold text-blue-950">{title}</h3>
       <p className="mb-5 text-gray-600">{description}</p>
       <a
         href={actionLink}
-        className="inline-block px-5 py-2.5 text-sm font-medium text-white transition-colors bg-orange-600 rounded-lg hover:bg-orange-700 focus:ring-4 focus:ring-orange-300"
+        className="inline-block px-5 py-2.5 text-sm font-medium shadow-lg text-white transition-colors bg-orange-600 rounded-lg hover:bg-orange-700 focus:ring-4 focus:ring-orange-300"
         aria-label={`Go to ${title}`}
       >
         {actionText}
