@@ -76,7 +76,7 @@ const AdminDashboard = () => {
         <div className="container px-4 mx-auto mt-24 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="mb-6 text-4xl font-bold text-blue-950 md:text-5xl">
-            <span className="text-orange-500">Suwida</span> Tour & Travels
+              <span className="text-orange-500">Suwida</span> Tour & Travels
             </h1>
             <h2 className="mb-4 text-3xl font-bold text-gray-900">Admin Portal</h2>
             <p className="mb-8 text-xl text-gray-600">
@@ -84,13 +84,12 @@ const AdminDashboard = () => {
             </p>
           </div>
 
-          <div className="grid gap-8 mt-12 sm:grid-cols-1 lg:grid-cols-2">
+          <div className="grid gap-8 mt-12 sm:grid-cols-1 lg:grid-cols-3">
             <DashboardCard 
               title="Manage Packages"
               description="Create, edit, and organize travel packages"
               actionText="View Packages"
               actionLink="/admin/packages"
-      
             />
 
             <DashboardCard 
@@ -98,6 +97,13 @@ const AdminDashboard = () => {
               description="Manage destination images and media content"
               actionText="View Gallery"
               actionLink="/admin/AdminGallery"
+            />
+
+            <DashboardCard 
+              title="Manage Cabs"
+              description="Add, edit, and organize cab services"
+              actionText="View Cabs"
+              actionLink="/admin/cabs"
             />
           </div>
         </div>

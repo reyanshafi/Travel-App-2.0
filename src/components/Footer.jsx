@@ -79,8 +79,9 @@ const Footer = () => {
             <h3 className='mb-4 text-sm font-semibold text-gray-200'>CONTACT INFO</h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start space-x-3">
+                
                 <FaMapMarkerAlt className="flex-shrink-0 mt-1 text-orange-400" />
-                <p className="text-gray-400">Landmark Hotel Hilal Palace, Srinagar, J&K, 190001</p>
+                <p className="text-gray-400">Landmark Hotel Hilal Palace, Khona Khan, Dalgate Srinagar, J&K, 190001</p>
               </div>
               <div className="flex items-center space-x-3">
                 <FaPhone className="text-orange-400" />

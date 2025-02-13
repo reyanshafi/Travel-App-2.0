@@ -12,6 +12,7 @@ const NAV_LINKS = [
   ['Destinations', '/destinations'],
   ['Packages', '/packages'],
   ['Services', '/services'],
+  ['Cabs', '/cabs'],
   ['Gallery', '/gallery'],
   ['Contact', '/contact'],
 ];
